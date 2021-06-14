@@ -6,7 +6,7 @@ export default class PostsContainer extends Component {
   state = {
     posts: [],
     start: 0,
-    step: 6,
+    step: 8,
     filter: '',
     show: []
   }
