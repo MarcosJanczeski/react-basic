@@ -1,5 +1,4 @@
-const PostCard = ({ post }) => (
-
+export const PostCard = ({ post }) => (
   <div className='post'>
     <img src={post.cover} alt={post.title} />
     <div className="post-content">
@@ -8,5 +7,3 @@ const PostCard = ({ post }) => (
     </div>
   </div>
 )
-
-export default PostCard

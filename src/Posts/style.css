@@ -25,3 +25,24 @@
 .post-content{
   padding: 20px;
 }
+
+button{
+  background: darkblue;
+  color: white;
+  padding: 15px;
+  border: none;
+  width: 80%;
+  margin: 20px 10%;
+  cursor: pointer;
+}
+
+button:disabled{
+  background: #777;
+  cursor: not-allowed;
+}
+
+input{
+  margin: 20px 25%;
+  width: 50%;
+  padding: 10px;
+}
