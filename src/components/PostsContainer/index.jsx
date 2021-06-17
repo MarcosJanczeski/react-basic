@@ -9,7 +9,7 @@ const PostsContainer = () => {
   const [filter, setFilter] = useState('')
   const [show, setShow] = useState([])
 
-  useEffect(() => mountPosts(), [])
+  useEffect(() => mountPosts())
 
   const mountPosts = async () => {
     const loadedPosts = await loadPosts()
