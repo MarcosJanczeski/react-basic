@@ -10,20 +10,20 @@ const PostsContainer = () => {
   const [show, setShow] = useState([])
 
 
-  const mountPosts = useCallback(async () => {
+  const mountPosts = useCallback(async (start, step) => {
     const loadedPosts = await loadPosts()
     setPosts(loadedPosts)
     setFilter('')
     setShow(loadedPosts.slice(start, step))
-  }, [start, step])
+  }, [])
 
-  useEffect(() => mountPosts(), [mountPosts])
 
   const nextPosts = () => {
     setStart(start + step)
     setShow(posts.slice(start, start + step))
   }
 
+  useEffect(() => mountPosts(0, step), [mountPosts, step])
 
   const filterPosts = e => {
     const filterValue = e.target.value
@@ -33,7 +33,7 @@ const PostsContainer = () => {
         post.title.toLowerCase().includes(filterValue.toLowerCase()) ||
         post.body.toLowerCase().includes(filterValue.toLowerCase())
       )))
-    } else mountPosts()
+    } else mountPosts(start, step)
   }
 
   return (
