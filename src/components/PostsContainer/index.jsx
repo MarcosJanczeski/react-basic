@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { PostCard } from '../PostCard'
 import loadPosts from './loadPosts'
 
@@ -9,14 +9,15 @@ const PostsContainer = () => {
   const [filter, setFilter] = useState('')
   const [show, setShow] = useState([])
 
-  useEffect(() => mountPosts())
 
-  const mountPosts = async () => {
+  const mountPosts = useCallback(async () => {
     const loadedPosts = await loadPosts()
     setPosts(loadedPosts)
     setFilter('')
     setShow(loadedPosts.slice(start, step))
-  }
+  }, [start, step])
+
+  useEffect(() => mountPosts(), [mountPosts])
 
   const nextPosts = () => {
     setStart(start + step)
