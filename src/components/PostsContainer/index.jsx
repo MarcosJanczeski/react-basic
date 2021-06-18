@@ -33,7 +33,7 @@ const PostsContainer = () => {
         post.title.toLowerCase().includes(filterValue.toLowerCase()) ||
         post.body.toLowerCase().includes(filterValue.toLowerCase())
       )))
-    } else mountPosts(start, step)
+    } else mountPosts(0, step)
   }
 
   return (
